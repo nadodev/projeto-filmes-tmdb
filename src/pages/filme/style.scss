@@ -1,0 +1,115 @@
+.details-movies {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 1000px;
+  max-width: 100%;
+
+  .buttons {
+    display: flex;
+    justify-content: flex-start;
+
+    button {
+      background-color: rgb(4, 90, 160);
+      color: white;
+      font-size: 0.9rem;
+      margin-left: 4px;
+      width: 10rem;
+      height: 2rem;
+      border: none;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.5s;
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -ms-transition: all 0.5s;
+      -o-transition: all 0.5s;
+
+      &:first-child {
+        margin-left: 0;
+      }
+      &:hover {
+        background-color: black;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.9rem;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        -o-transition: all 0.5s;
+      }
+    }
+  }
+  img {
+    margin-bottom: 10px;
+    border: 3px solid rgb(209, 209, 209);
+  }
+  p {
+    line-height: 2rem;
+    margin-top: 20px;
+  }
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  h4 {
+    font-size: 2rem;
+    margin: 10px 15px 0 0;
+  }
+  a {
+    text-decoration: none;
+    width: 3rem;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    padding: 5px;
+    color: black;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    margin-bottom: 15px;
+  }
+  .voltar {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 1050px) {
+  .details-movies {
+    p {
+      line-height: 2rem;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .buttons {
+      justify-content: center;
+    }
+    h1 {
+      text-align: center;
+    }
+    h2 {
+      text-align: center;
+    }
+    h4 {
+      text-align: center;
+    }
+  }
+}

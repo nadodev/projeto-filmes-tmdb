@@ -1,0 +1,64 @@
+header {
+  .container {
+    width: 870px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 60px;
+  background-color: #8dd7ce;
+  box-shadow: 1px 1px 10px rgba(90, 90, 90, 0.4);
+
+  .logo {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .favoritos {
+    border: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    font-size: 1rem;
+    padding: 7px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    color: #fff;
+  }
+  .cart {
+    border: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1rem;
+    padding: 7px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    position: relative;
+    .bg-cart {
+      position: absolute;
+      background-color: #fbe192;
+      border-radius: 20px;
+      padding: 0 5px;
+      font-size: 0.7rem;
+      left: 25px;
+      color: black;
+      top: 0;
+    }
+  }
+}
