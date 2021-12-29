@@ -124,3 +124,10 @@
     }
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .modal-container {
+    width: 400px !important;
+    margin: 0;
+  }
+}
