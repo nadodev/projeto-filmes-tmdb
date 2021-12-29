@@ -72,7 +72,7 @@ function ListCart() {
         </div>
       </div>
       {cart.produtos.length > 0 ? (
-        <div className="d-flex justify-content-center flex-column bg-light mt-4">
+        <div className="resp-total d-flex justify-content-center flex-column bg-light mt-4">
           <div className="d-flex justify-content-between">
             <p className="mt-3">Total</p>
             <p className="me-2 mt-3">

@@ -22,3 +22,13 @@
     }
   }
 }
+@media only screen and (max-width: 500px) {
+  .resp-total {
+    max-width: 95% !important;
+    margin: 0 !important;
+  }
+  .conteudo-table {
+    max-width: 90% !important;
+    overflow: hidden !important;
+  }
+}

@@ -62,3 +62,14 @@ header {
     }
   }
 }
+@media only screen and (max-width: 500px) {
+  .logo {
+    font-size: 1rem !important;
+  }
+  .input-resp {
+    width: 80%;
+  }
+  header {
+    width: 100%;
+  }
+}

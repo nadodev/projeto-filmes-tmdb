@@ -24,16 +24,13 @@ export default function Index() {
           <div className="col-lg-6">
             <input
               type="text"
-              className="form-control"
+              className="form-control input-resp"
               placeholder="Pesquisar"
               value={searchMovie}
               onChange={(e) => setSearchhMovie(e.target.value)}
             />
           </div>
           <div>
-            <Link className="favoritos" to="">
-              <AiFillHeart size={25} />
-            </Link>
             <Link className="cart" onClick={() => openDrawer()}>
               <AiOutlineShoppingCart size={25} />
               <span className="bg-cart">{calcQuantity()}</span>

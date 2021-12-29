@@ -54,7 +54,7 @@ function FormCart() {
   };
 
   return (
-    <div className="form col-lg-6 me-5">
+    <div className="resp form col-lg-6 me-5 col-sm-6">
       <Modal
         nome={nome}
         cpf={cpf}

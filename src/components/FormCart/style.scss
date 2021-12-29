@@ -28,10 +28,14 @@
   }
 }
 
-@media (max-width: 768px) and (min-width: 1000px) {
+@media only screen and (max-width: 500px) {
+  .form {
+    padding: 50px;
+    margin-left: 50px;
+  }
+
   .cpf {
-    width: 100px;
-    background-color: red !important;
+    width: 180px;
   }
   .cep {
     width: 180px;
