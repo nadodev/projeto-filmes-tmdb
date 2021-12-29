@@ -16,8 +16,8 @@ export default function Cart() {
     <>
       <main className="container">
         <Sidebar cart={(cart, listMovie)} />
-        <section className="Cart content d-flex justify-content-center align-items-start mt-5">
-          <div className="cart-responsive d-flex justify-content-center align-items-start">
+        <section className="Cart content d-flex justify-content-start  align-items-start mt-5">
+          <div className="cart-responsive d-flex justify-content-around">
             <FormCart />
             <ListCart />
           </div>

@@ -85,9 +85,9 @@ function FormCart() {
         />
       </div>
 
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between ">
         {/* Input Cpf */}
-        <div className="form-group">
+        <div className="form-group cpf">
           <InputMask
             mask="999.999.999-99"
             type="text"
@@ -98,7 +98,7 @@ function FormCart() {
           />
         </div>
         {/* Input Celular */}
-        <div className="form-group">
+        <div className="form-group celular">
           <InputMask
             mask="(99) 99999-9999"
             type="text"
@@ -119,7 +119,7 @@ function FormCart() {
         />
       </div>
       <div className="d-flex justify-content-between">
-        <div className="form-group">
+        <div className="form-group cep">
           <InputMask
             mask="99999-999"
             type="text"
@@ -129,7 +129,7 @@ function FormCart() {
             onChange={(e) => setCep(e.target.value)}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group endereco">
           <input
             type="text"
             className="form-control"
@@ -140,7 +140,7 @@ function FormCart() {
         </div>
       </div>
       <div className="d-flex justify-content-between">
-        <div className="form-group ">
+        <div className="form-group cidade">
           <input
             type="text"
             className="form-control"
@@ -149,7 +149,7 @@ function FormCart() {
             onChange={(e) => setCidade(e.target.value)}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group endereco">
           <input
             type="text"
             className="form-control"

@@ -2,6 +2,7 @@
   input {
     margin-bottom: 20px;
     border: 2px solid #c5ced6;
+
     font-weight: bold;
     &::-webkit-input-placeholder {
       color: #c6d2db;
@@ -9,5 +10,39 @@
     &::after {
       margin: 0;
     }
+  }
+  .cpf {
+    width: 180px;
+  }
+  .cep {
+    width: 180px;
+  }
+  .cidade {
+    width: 180px;
+  }
+  .celular {
+    width: 230px;
+  }
+  .endereco {
+    width: 230px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 1000px) {
+  .cpf {
+    width: 100px;
+    background-color: red !important;
+  }
+  .cep {
+    width: 180px;
+  }
+  .cidade {
+    width: 180px;
+  }
+  .celular {
+    width: 230px;
+  }
+  .endereco {
+    width: 230px;
   }
 }
