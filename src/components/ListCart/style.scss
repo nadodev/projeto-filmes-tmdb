@@ -24,11 +24,36 @@
 }
 @media only screen and (max-width: 500px) {
   .resp-total {
-    max-width: 95% !important;
-    margin: 0 !important;
+    max-width: 65% !important;
+    margin-left: 110px !important;
   }
   .conteudo-table {
-    max-width: 90% !important;
-    overflow: hidden !important;
+    display: flex;
+    flex-direction: column;
+  }
+  .conteudo-cart-resp {
+    display: none;
+  }
+  .detalhe-responsivo {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100px !important;
+      height: 100px !important;
+      margin-bottom: 30px;
+    }
+    .responsivo-form {
+      background-color: #eee;
+      margin-top: 0;
+      padding: 10px 60px;
+      border-radius: 10px;
+      align-items: flex-start;
+      justify-content: space-around;
+    }
   }
 }

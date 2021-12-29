@@ -20,7 +20,7 @@ function ListCart() {
         <div className="conteudo-table">
           <table>
             <thead>
-              <tr>
+              <tr className="conteudo-cart-resp">
                 <th>Imagem</th>
                 <th>Nome</th>
                 <th>Quantidade</th>
@@ -32,7 +32,7 @@ function ListCart() {
               {cart.produtos.length > 0
                 ? cart.produtos.map((item) => {
                     return (
-                      <tr className="h-100">
+                      <tr className="h-100 detalhe-responsivo">
                         <td className="text-right">
                           <img
                             className="img-responsive"
@@ -43,26 +43,28 @@ function ListCart() {
                             alt={item.name}
                           />
                         </td>
-                        <td className="mt-5">{item.name}</td>
-                        <td className="qtd-check">
-                          <input
-                            type="text"
-                            value={item.quantidade}
-                            onChange={handleChangeQtd}
-                          />
-                        </td>
-                        <td>
-                          {" "}
-                          {parseInt(item.price).toLocaleString("pt-br", {
-                            style: "currency",
-                            currency: "BRL",
-                          })}
-                        </td>
-                        <td className="text-center">
-                          <Link onClick={() => removeFromCart(item.id)}>
-                            <BsFillTrashFill />
-                          </Link>
-                        </td>
+                        <div className="responsivo-form">
+                          <td className="mt-5">{item.name}</td>
+                          <td className="qtd-check">
+                            <input
+                              type="text"
+                              value={item.quantidade}
+                              onChange={handleChangeQtd}
+                            />
+                          </td>
+                          <td>
+                            {" "}
+                            {parseInt(item.price).toLocaleString("pt-br", {
+                              style: "currency",
+                              currency: "BRL",
+                            })}
+                          </td>
+                          <td className="text-center trash-resp">
+                            <Link onClick={() => removeFromCart(item.id)}>
+                              <BsFillTrashFill />
+                            </Link>
+                          </td>
+                        </div>
                       </tr>
                     );
                   })
