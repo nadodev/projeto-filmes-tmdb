@@ -13,16 +13,16 @@ function Sidebar() {
   React.useEffect(() => {
     window.addEventListener("openCart", () => setIsVisible(true));
   }, []);
+
   var largura = window.document.body.clientWidth;
-  const { cart, removeFromCart, clearCart } = useContext(cartContext);
-  console.log("id", cart);
+  const { cart, removeFromCart, clearCart, total } = useContext(cartContext);
 
   return (
     <Dock
       className="overflow-hidden"
       position="right"
       isVisible={isVisible}
-      size={largura < 768 ? 0.8 : 0.2}
+      size={largura < 768 ? 0.9 : 0.4}
       onVisibleChange={(visible) => {
         setIsVisible(visible);
       }}
@@ -42,27 +42,35 @@ function Sidebar() {
               </Link>
             </div>
             <div className="row">
-              {cart.map((item) => (
-                <div className="col-lg-12 mb-3" key={item.id}>
-                  <div className="d-flex justify-content-between align-items-center h-100">
-                    <img
-                      className="img-responsive"
-                      src={GetImage("w276_and_h350_face", item.foto)}
-                      alt={item.name}
-                    />
-                    <p className="mb-1 w-10">{item.name.substr(0, 10)}</p>
-                    <p className="mb-1 w-10">Qtd: {item.ammount}</p>
-                    <p className="mb-1 w-10">R$: {item.price}</p>
-                    <button
-                      data-tip="Excluir do Carrinho"
-                      className="btn"
-                      onClick={() => removeFromCart(item.id)}
-                    >
-                      <BsFillTrashFill />
-                    </button>
+              {cart.produtos.map((item) => {
+                return (
+                  <div className="col-lg-12 mb-3" key={item.id}>
+                    <div className="d-flex justify-content-between align-items-center h-100">
+                      <img
+                        className="img-responsive"
+                        src={GetImage("w276_and_h350_face", item.poster_path)}
+                        alt={item.name}
+                      />
+                      <p className="mb-1 w-10">{item.name}</p>
+                      <p className="mb-1 w-10">Qtd: {item.quantidade}</p>
+                      <p className="mb-1 w-10">
+                        R$:{" "}
+                        {item.price.toLocaleString("pt-br", {
+                          style: "currency",
+                          currency: "BRL",
+                        })}
+                      </p>
+                      <button
+                        data-tip="Excluir do Carrinho"
+                        className="btn"
+                        onClick={() => removeFromCart(item.id)}
+                      >
+                        <BsFillTrashFill />
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -71,21 +79,24 @@ function Sidebar() {
             <p>Total</p>
             <p>
               <strong>
-                {" "}
-                R$:{" "}
-                {cart.reduce(
-                  (total, item) => total + parseFloat(item.price),
-                  0
-                )}
+                {total.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
               </strong>
             </p>
           </div>
-          <button
-            className="btn-finalizar btn btn-block btn-lg rounded-0 w-100"
-            data-tip=" Finalizar Compras"
-          >
-            Finalizar Compras
-          </button>
+          {cart.produtos.length > 0 ? (
+            <Link
+              to="cart"
+              className="btn-finalizar btn btn-block btn-lg rounded-0 w-100"
+              data-tip=" Finalizar Compras"
+            >
+              Finalizar Compras
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </Dock>

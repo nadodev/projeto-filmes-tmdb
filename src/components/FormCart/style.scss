@@ -1,0 +1,13 @@
+.form {
+  input {
+    margin-bottom: 20px;
+    border: 2px solid #c5ced6;
+    font-weight: bold;
+    &::-webkit-input-placeholder {
+      color: #c6d2db;
+    }
+    &::after {
+      margin: 0;
+    }
+  }
+}

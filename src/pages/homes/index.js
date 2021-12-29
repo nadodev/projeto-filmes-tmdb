@@ -9,8 +9,8 @@ import MainPagination from "../../components/paginations/mainPagination";
 import Sidebar from "../../components/Sidebar";
 import GetImage from "../../services/GetImage";
 
-import { toast } from "react-toastify";
 import "./style.scss";
+import { toast } from "react-toastify";
 export default function Home() {
   const listScroll = React.useRef(null);
   const scrollToRefObject = (ref) => window.scrollTo(0, ref.current?.offsetTop);
@@ -18,19 +18,20 @@ export default function Home() {
   const [type, setType] = useState("movie");
   const [listMovie, setListMovie] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  //Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [lastPage, setLastPage] = useState(null);
   const [totalResults, setTotalResults] = useState(null);
 
-  // Cart
+  // contexto
+  const { searchMovie, cart, addToCart, adicionarProduto } =
+    useContext(cartContext);
 
-  const { searchMovie, cart, addToCart } = useContext(cartContext);
+  // useEffect para carregar a lista de filmes
   useEffect(() => {
     function LoadTvs() {
       scrollToRefObject(listScroll);
       setLoading(true);
+
       api
         .get(`/tv/${type == "movie" ? "popular" : "top_rated"}`, {
           params: {
@@ -42,11 +43,11 @@ export default function Home() {
             setListMovie(response.data.results);
             setLastPage(response.data.total_pages);
             setTotalResults(response.data.total_results);
-            console.log(response.data.results);
+            console.log("result", response.data.results);
           }
         })
         .catch((error) => {
-          console.log("LoadTvs error " + error);
+          console.log(" error " + error);
         })
         .finally(() => {
           setTimeout(() => {
@@ -54,14 +55,35 @@ export default function Home() {
           }, 500);
         });
     }
-
     LoadTvs();
   }, [type, currentPage]);
 
+  const addFavorito = () => {
+    const minhaLista = localStorage.getItem("filmes", "salvo");
+
+    let filmesSalvos = JSON.parse(minhaLista) || [];
+    const hasFilmes = filmesSalvos.some(
+      (filmesSalvos) => filmesSalvos.id === listMovie.id
+    );
+
+    if (hasFilmes) {
+      toast.error("Voce ja possui esse filme ");
+
+      return;
+    }
+
+    filmesSalvos.push(listMovie);
+    localStorage.setItem("filmes", JSON.stringify(filmesSalvos));
+
+    toast.success("filmes salvo com sucesso");
+  };
+
+  // função para fazer busca
   const filterBusca = listMovie.filter((item) =>
     item.name.toLowerCase().includes(searchMovie.toLowerCase())
   );
 
+  // verificação  da pesquisa
   if (filterBusca.length === 0) {
     return (
       <main className="container" ref={listScroll}>
@@ -79,9 +101,9 @@ export default function Home() {
         <section className="list-movies">
           {filterBusca.map((filme) => {
             return (
-              <article>
+              <article key={filme.id}>
                 <span className="favHeart">
-                  <button>
+                  <button onClick={addFavorito}>
                     <AiFillHeart color="#4b5c6b" />
                   </button>
                 </span>
@@ -89,17 +111,15 @@ export default function Home() {
                   src={GetImage("w276_and_h350_face", filme.poster_path)}
                   alt={filme.name}
                 />
-                <strong>{filme.name.substr(0, 21) + "..."}</strong>
+                <strong>{filme.name.substr(0, 10) + "..."}</strong>
                 <span className="filmeInfo">
                   <span className="d-flex align-items-center justify-content-center">
                     <AiFillStar /> 7.5
                   </span>
                   <p>Acao</p>
                 </span>
-                <p>R$: 10,00</p>
-                <Link onClick={() => addToCart(filme.name, filme.poster_path)}>
-                  Adicionar
-                </Link>
+                <p>R$: 30,00</p>
+                <Link onClick={() => adicionarProduto(filme)}>Adicionar</Link>
               </article>
             );
           })}

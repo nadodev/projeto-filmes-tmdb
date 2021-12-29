@@ -6,13 +6,14 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import { cartContext } from "../../context/cartContext";
 export default function Index() {
-  const { cart, search, setSearch, searchMovie, setSearchhMovie } =
+  const { searchMovie, setSearchhMovie, calcQuantity } =
     useContext(cartContext);
 
   const openDrawer = () => {
     const event = new CustomEvent("openCart");
     window.dispatchEvent(event);
   };
+
   return (
     <>
       <header>
@@ -30,12 +31,12 @@ export default function Index() {
             />
           </div>
           <div>
-            <Link className="favoritos" to="/favoritos">
+            <Link className="favoritos" to="">
               <AiFillHeart size={25} />
             </Link>
             <Link className="cart" onClick={() => openDrawer()}>
               <AiOutlineShoppingCart size={25} />
-              <span className="bg-cart">{cart.length}</span>
+              <span className="bg-cart">{calcQuantity()}</span>
             </Link>
           </div>
         </div>

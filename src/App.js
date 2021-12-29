@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <CartProvider>
         <Router />
-        <ToastContainer autoClose={3000} />
+        <ToastContainer autoClose={3000} position="top-left" />
       </CartProvider>
     </div>
   );

@@ -1,0 +1,126 @@
+.modall {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .modall-wraper {
+    position: relative;
+    .modal-container {
+      overflow: auto;
+      background-color: #fff;
+      width: 900px;
+      min-height: 200px;
+      max-height: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      // modal
+
+      .card-modal-produto {
+        width: 100%;
+        padding: 10px;
+
+        .detalhe-produtos {
+          background-color: #eee;
+          padding: 20px;
+          border-radius: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .img-produto {
+            width: 70px;
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+
+      .detalhes-pedidos {
+        width: 100%;
+        padding: 20px;
+        border-radius: 10px;
+
+        .detalhes-pedidos-container {
+          border: 1px solid #ccc;
+          padding: 10px;
+          p {
+            margin: 5px 0;
+          }
+
+          .detalhe-info-cliente {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            p {
+              margin-left: 50px;
+
+              &:first-child {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .btn-closee {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #333;
+
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #fff;
+      &:hover {
+        background-color: rgb(10, 10, 10);
+        color: #fff;
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        color: white;
+      }
+    }
+    .btn-finalizar {
+      background-color: #8dd7ce;
+      border: 0;
+      width: 100%;
+      height: 40px;
+      color: #333;
+      font-size: 1.3rem;
+    }
+
+    .modal-total {
+      width: 100%;
+      height: 50px;
+      background-color: #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        padding: 30px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
